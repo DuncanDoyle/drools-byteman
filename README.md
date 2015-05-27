@@ -9,3 +9,5 @@ To enable Byteman, add the following JVM arguments on startup:
 
 Replace ${BYTEMAN_HOME} and ${BYTEMAN_SCRIPTS} with the location of your Byteman installation and the directory that contains the 'drools-byteman.btm' script.
 The 'drools-byteman.btm' script can be found in the 'src/main/resources' directory of the 'drools-byteman' project.
+
+For more information on Byteman, please consult the Byteman project homepage: http://byteman.jboss.org
