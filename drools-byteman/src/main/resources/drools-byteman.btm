@@ -1,0 +1,286 @@
+#
+# Byteman rules to debug Drools sessions.
+#
+# author: duncan.doyle@redhat.com
+#
+
+#########################################################
+################### PhreakTimerNode #####################
+#########################################################
+RULE PhreakTimerNode doNodeEntry
+CLASS PhreakTimerNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakTimerNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples, $stagedLeftTuples);
+ENDRULE
+
+RULE PhreakTimerNode doNodeExit
+CLASS PhreakTimerNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakTimerNodeHelper
+AT EXIT
+IF true
+DO printPhreakNodeDoNodeExit($this, $trgLeftTuples);
+ENDRULE
+
+RULE PhreakTimerNode doLeftDeletes
+CLASS PhreakTimerNode
+METHOD doLeftDeletes
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakTimerNodeHelper
+AT LINE 197
+IF true
+DO printDoLeftDeletes($sink, $wm, $srcLeftTuples, $trgLeftTuples, $stagedLeftTuples, $childLeftTuple);
+ENDRULE
+
+#########################################################
+################### PhreakNotNode #######################
+#########################################################
+RULE PhreakNotNode doNodeEntry
+CLASS PhreakNotNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakNotNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples, $stagedLeftTuples);
+ENDRULE
+
+RULE PhreakNotNode doNodeExit
+CLASS PhreakNotNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakNotNodeHelper
+AT EXIT
+IF true
+DO printPhreakNodeDoNodeExit($this, $trgLeftTuples);
+ENDRULE
+
+#########################################################
+################### PhreakJoinNode ######################
+#########################################################
+RULE PhreakJoinNode doNodeEntry
+CLASS PhreakJoinNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakJoinNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples, $stagedLeftTuples);
+ENDRULE
+
+RULE PhreakJoinNode doNodeExit
+CLASS PhreakJoinNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakJoinNodeHelper
+AT EXIT
+IF true
+DO printPhreakNodeDoNodeExit($this, $trgLeftTuples);
+ENDRULE
+
+#########################################################
+################### PhreakEvalNode ######################
+#########################################################
+RULE PhreakEvalNode doNodeEntry
+CLASS PhreakEvalNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakEvalNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples, $stagedLeftTuples);
+ENDRULE
+
+RULE PhreakEvalNode doNodeExit
+CLASS PhreakEvalNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakEvalNodeHelper
+AT EXIT
+IF true
+DO printPhreakNodeDoNodeExit($this, $trgLeftTuples);
+ENDRULE
+
+#########################################################
+################### PhreakFromNode ######################
+#########################################################
+RULE PhreakFromNode doNodeEntry
+CLASS PhreakFromNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakFromNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples, $stagedLeftTuples);
+ENDRULE
+
+RULE PhreakFromNode doNodeExit
+CLASS PhreakFromNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakEvalNodeHelper
+AT EXIT
+IF true
+DO printPhreakNodeDoNodeExit($this, $trgLeftTuples);
+ENDRULE
+
+#########################################################
+################### PhreakExistsNode ####################
+#########################################################
+RULE PhreakExistsNode doNodeEntry
+CLASS PhreakExistsNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakExistsNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples, $stagedLeftTuples);
+ENDRULE
+
+RULE PhreakExistsNode doNodeExit
+CLASS PhreakExistsNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakExistNodeHelper
+AT EXIT
+IF true
+DO printPhreakNodeDoNodeExit($this, $trgLeftTuples);
+ENDRULE
+
+#########################################################
+################### PhreakAccumulateNode ################
+#########################################################
+RULE PhreakAccumulateNode doNodeEntry
+CLASS PhreakAccumulateNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakAccumulateNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples, $stagedLeftTuples);
+ENDRULE
+
+RULE PhreakAccumulateNode doNodeExit
+CLASS PhreakAccumulateNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakAccumulateNodeHelper
+AT EXIT
+IF true
+DO printPhreakNodeDoNodeExit($this, $trgLeftTuples);
+ENDRULE
+
+#########################################################
+################### PhreakBranchNode ####################
+#########################################################
+RULE PhreakBranchNode doNodeEntry
+CLASS PhreakBranchNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakBranchNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples, $stagedLeftTuples);
+ENDRULE
+
+RULE PhreakBranchNode doNodeExit
+CLASS PhreakBranchNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakBranchNodeHelper
+AT EXIT
+IF true
+DO printPhreakNodeDoNodeExit($this, $trgLeftTuples);
+ENDRULE
+
+#########################################################
+################### PhreakQueryNode #####################
+#########################################################
+RULE PhreakQueryNode doNodeEntry
+CLASS PhreakQueryNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakQueryNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples, $stagedLeftTuples);
+ENDRULE
+
+RULE PhreakQueryNode doNodeExit
+CLASS PhreakQueryNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakQueryNodeHelper
+AT EXIT
+IF true
+DO printPhreakNodeDoNodeExit($this, $trgLeftTuples);
+ENDRULE
+
+#########################################################
+################### PhreakRuleTerminalNode ##############
+#########################################################
+RULE PhreakRuleTerminalNode doNodeEntry
+CLASS PhreakRuleTerminalNode
+METHOD doNode
+HELPER org.jboss.ddoyle.drools.byteman.helper.PhreakRuleTerminalNodeHelper
+AT ENTRY
+IF true
+DO printPhreakNodeDoNodeEntry($this, $srcLeftTuples);
+ENDRULE
+
+# PhreakRuleTerminalNode does not have targetLeftTupleSets as it doesn't propagate tupleSets.
+
+#########################################################
+################### RuleNetworkEvaluator ################
+#########################################################
+RULE trace srcTuples
+CLASS RuleNetworkEvaluator
+RULE trace srcTuples
+CLASS RuleNetworkEvaluator
+METHOD innerEval
+HELPER org.jboss.ddoyle.drools.byteman.helper.RuleNetworkEvaluatorHelper
+AT LINE 246
+IF true
+DO printTuplesInRuleNetworkEvaluator($node, $srcTuples);
+ENDRULE
+
+RULE print segment memory
+CLASS RuleNetworkEvaluator
+METHOD evaluateNetwork
+HELPER org.jboss.ddoyle.drools.byteman.helper.RuleNetworkEvaluatorHelper
+AT LINE 82
+IF true
+DO printSegmentMemories($smems);
+ENDRULE
+
+#########################################################
+################### ObjectTypeNode ######################
+#########################################################
+RULE ObjectTypeNode trace
+CLASS ObjectTypeNode
+METHOD assertObject
+HELPER org.jboss.ddoyle.drools.byteman.helper.ObjectTypeNodeHelper
+AT ENTRY
+IF true
+DO printObjectTypeNodeAssertObject($this, $factHandle);
+ENDRULE
+
+#########################################################
+################### AlphaNode ###########################
+#########################################################
+RULE AlphaNode trace
+CLASS AlphaNode
+METHOD assertObject
+HELPER org.jboss.ddoyle.drools.byteman.helper.AlphaNodeHelper
+AT ENTRY
+IF true
+DO printAlphaNodeAssertObject($this, $factHandle);
+ENDRULE
+
+#########################################################
+################### NotNode #############################
+#########################################################
+RULE NotNode trace
+CLASS NotNode
+METHOD assertObject
+HELPER org.jboss.ddoyle.drools.byteman.helper.NotNodeHelper
+AT ENTRY
+IF true
+DO printNotNodeAssertObject($this, $factHandle);
+ENDRULE
+
+
+
+
+
+
+
+
+
+
