@@ -24,7 +24,7 @@ public class PhreakTimerNodeHelper extends AbstractPhreakNodeHelper {
 		return NAME;
 	}
 	
-	public void printDoLeftDeletes (LeftTupleSink sink, InternalWorkingMemory wm, LeftTupleSets srcLeftTuples, LeftTupleSets trgLeftTuples, LeftTupleSets stagedLeftTuples, LeftTuple childLeftTuple) {
+	public void printDoLeftDeletes(LeftTupleSink sink, InternalWorkingMemory wm, LeftTupleSets srcLeftTuples, LeftTupleSets trgLeftTuples, LeftTupleSets stagedLeftTuples, LeftTuple childLeftTuple) {
 		LOGGER.info("BEGIN PHREAKTIMERNODE DOLEFTDELETES");
 		LOGGER.info("LeftTupleSink: " + sink);
 		LOGGER.info("InternalWorkingMemory: " + wm);
